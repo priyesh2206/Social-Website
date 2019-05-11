@@ -1,0 +1,33 @@
+<particles [params]="myParam" [style]="myStyles" [width]="width" [height]="height"></particles>
+<div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Signup</mat-card-title>
+     </mat-card-header>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form  (submit)="onSignup(signupForm)" #signupForm="ngForm"  *ngIf="!isLoading">
+        <mat-form-field>
+            <input matInput
+            name="email" ngModel
+            type="email"
+            placeholder="E-mail"
+            #emailInput="ngModel" required email >
+            <mat-error *ngIf="emailInput.invalid">
+             PLease enter a valid Email
+            </mat-error>
+          </mat-form-field>
+  <mat-form-field>
+    <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+             <mat-error *ngIf="passwordInput.invalid">
+                PLease enter a valid password
+               </mat-error>
+            </mat-form-field>
+             <button
+             mat-raised-button
+             color="accent"
+          type="submit" *ngIf="!isLoading">Signup</button>
+    </form>
+  </mat-card>
+  <p style="text-align: center">@CopyRightAreReserved#2019</p>
+  </div>
+
